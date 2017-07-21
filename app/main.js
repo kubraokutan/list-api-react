@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styles from 'css/main.css';
 
 let User = React.createClass({
     getInitialState: function() {
@@ -10,7 +11,7 @@ let User = React.createClass({
 
     render: function() {
         return (
-            <div>
+            <div className="user">
                 <div>Name: {this.props.name} </div>
                 <div>Active: {this.state.active} </div>
                 <button>Toggle Active</button>

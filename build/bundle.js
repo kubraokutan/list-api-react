@@ -9757,6 +9757,10 @@ var _reactDom = __webpack_require__(98);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _main = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"css/main.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _main2 = _interopRequireDefault(_main);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var User = _react2.default.createClass({
@@ -9771,7 +9775,7 @@ var User = _react2.default.createClass({
     render: function render() {
         return _react2.default.createElement(
             'div',
-            null,
+            { className: 'user' },
             _react2.default.createElement(
                 'div',
                 null,
