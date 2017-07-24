@@ -9759,48 +9759,39 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var User = _react2.default.createClass({
-    displayName: 'User',
+var Counter = _react2.default.createClass({
+    displayName: 'Counter',
+
 
     getInitialState: function getInitialState() {
         return {
-            active: false
+            count: 0
         };
     },
 
-    render: function render() {
+    componentDidMount: function componentDidMount() {
+        var _this2 = this;
 
-        var active = this.state.active ? 'Yes' : 'No';
+        var _this = this;
 
-        return _react2.default.createElement(
-            'div',
-            { className: 'user' },
-            _react2.default.createElement(
-                'div',
-                null,
-                'Name: ',
-                this.props.name,
-                ' '
-            ),
-            _react2.default.createElement(
-                'div',
-                null,
-                'Active: ',
-                active,
-                ' '
-            ),
-            _react2.default.createElement(
-                'button',
-                { onClick: this.toggleActive },
-                'Toggle Active'
-            )
-        );
+        this.setState({
+            count: this.props.start
+        });
+
+        setInterval(function () {
+            _this.setState({
+                count: _this2.state.count + 1
+            });
+        }, 1000);
     },
 
-    toggleActive: function toggleActive() {
-        this.setState({
-            active: !this.state.active
-        });
+    render: function render() {
+        return _react2.default.createElement(
+            'div',
+            null,
+            'Count: ',
+            this.state.count
+        );
     }
 });
 
@@ -9808,17 +9799,7 @@ var App = _react2.default.createClass({
     displayName: 'App',
 
     render: function render() {
-        return _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-                'h2',
-                null,
-                'User List: '
-            ),
-            _react2.default.createElement(User, { name: 'Kubra Guler' }),
-            _react2.default.createElement(User, { name: 'Soner Guler' })
-        );
+        return _react2.default.createElement(Counter, { start: 5 });
     }
 });
 
