@@ -1,41 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-let User = React.createClass({
+let Counter = React.createClass({
+
     getInitialState: function() {
         return {
-            active: false
+            count: 0
         }
     },
 
-    render: function() {
+    componentDidMount: function() {
+        let _this = this
 
-        let active = this.state.active ? 'Yes' : 'No'
+        this.setState({
+            count: this.props.start
+        })
 
-        return (
-            <div className="user">
-                <div>Name: {this.props.name} </div>
-                <div>Active: {active} </div>
-                <button onClick={this.toggleActive}>Toggle Active</button>
-            </div>
-        )
+        setInterval(() => {
+            _this.setState({
+                count: this.state.count + 1
+            })
+        }, 1000)
     },
 
-    toggleActive: function() {
-        this.setState ({
-            active: !this.state.active
-        })
+    render: function() {
+        return (
+            <div>Count: {this.state.count}</div>
+        )
     }
 });
 
 let App = React.createClass({
     render: function() {
         return (
-            <div>
-                <h2>User List: </h2>
-                <User name="Kubra Guler" />
-                <User name="Soner Guler" />
-            </div>
+           <Counter start ={5} />
         )
     }
 });
