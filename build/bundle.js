@@ -9759,50 +9759,19 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var User = _react2.default.createClass({
-    displayName: 'User',
-
-    getInitialState: function getInitialState() {
-        return {
-            active: false
-        };
-    },
-
-    render: function render() {
-
-        var active = this.state.active ? 'Yes' : 'No';
-
-        return _react2.default.createElement(
+var User = function User(props) {
+    return _react2.default.createElement(
+        'div',
+        { className: 'user' },
+        _react2.default.createElement(
             'div',
-            { className: 'user' },
-            _react2.default.createElement(
-                'div',
-                null,
-                'Name: ',
-                this.props.name,
-                ' '
-            ),
-            _react2.default.createElement(
-                'div',
-                null,
-                'Active: ',
-                active,
-                ' '
-            ),
-            _react2.default.createElement(
-                'button',
-                { onClick: this.toggleActive },
-                'Toggle Active'
-            )
-        );
-    },
-
-    toggleActive: function toggleActive() {
-        this.setState({
-            active: !this.state.active
-        });
-    }
-});
+            null,
+            'Name: ',
+            props.name,
+            ' '
+        )
+    );
+};
 
 var App = _react2.default.createClass({
     displayName: 'App',
@@ -9814,10 +9783,10 @@ var App = _react2.default.createClass({
             _react2.default.createElement(
                 'h2',
                 null,
-                'User List: '
+                'Star Wars Characters: '
             ),
-            _react2.default.createElement(User, { name: 'Kubra Guler' }),
-            _react2.default.createElement(User, { name: 'Soner Guler' })
+            _react2.default.createElement(User, { name: 'Luke Skywalker' }),
+            _react2.default.createElement(User, { name: 'Darth Vader' })
         );
     }
 });
