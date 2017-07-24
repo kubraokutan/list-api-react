@@ -9757,10 +9757,6 @@ var _reactDom = __webpack_require__(98);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _main = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"css/main.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-var _main2 = _interopRequireDefault(_main);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var User = _react2.default.createClass({
@@ -9768,11 +9764,14 @@ var User = _react2.default.createClass({
 
     getInitialState: function getInitialState() {
         return {
-            active: 'No'
+            active: false
         };
     },
 
     render: function render() {
+
+        var active = this.state.active ? 'Yes' : 'No';
+
         return _react2.default.createElement(
             'div',
             { className: 'user' },
@@ -9787,15 +9786,21 @@ var User = _react2.default.createClass({
                 'div',
                 null,
                 'Active: ',
-                this.state.active,
+                active,
                 ' '
             ),
             _react2.default.createElement(
                 'button',
-                null,
+                { onClick: this.toggleActive },
                 'Toggle Active'
             )
         );
+    },
+
+    toggleActive: function toggleActive() {
+        this.setState({
+            active: !this.state.active
+        });
     }
 });
 

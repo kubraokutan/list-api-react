@@ -1,23 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from 'css/main.css';
 
 let User = React.createClass({
     getInitialState: function() {
         return {
-            active: 'No'
+            active: false
         }
     },
 
     render: function() {
+
+        let active = this.state.active ? 'Yes' : 'No'
+
         return (
             <div className="user">
                 <div>Name: {this.props.name} </div>
-                <div>Active: {this.state.active} </div>
-                <button>Toggle Active</button>
+                <div>Active: {active} </div>
+                <button onClick={this.toggleActive}>Toggle Active</button>
             </div>
         )
     },
+
+    toggleActive: function() {
+        this.setState ({
+            active: !this.state.active
+        })
+    }
 });
 
 let App = React.createClass({
