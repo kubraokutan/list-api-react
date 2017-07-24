@@ -10219,6 +10219,7 @@ module.exports = function xhrAdapter(config) {
       requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
     }
 
+<<<<<<< HEAD
     request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
 
     // Set the request timeout in MS
@@ -10290,6 +10291,41 @@ module.exports = function xhrAdapter(config) {
       if (xsrfValue) {
         requestHeaders[config.xsrfHeaderName] = xsrfValue;
       }
+=======
+var Counter = _react2.default.createClass({
+    displayName: 'Counter',
+
+
+    getInitialState: function getInitialState() {
+        return {
+            count: 0
+        };
+    },
+
+    componentDidMount: function componentDidMount() {
+        var _this2 = this;
+
+        var _this = this;
+
+        this.setState({
+            count: this.props.start
+        });
+
+        setInterval(function () {
+            _this.setState({
+                count: _this2.state.count + 1
+            });
+        }, 1000);
+    },
+
+    render: function render() {
+        return _react2.default.createElement(
+            'div',
+            null,
+            'Count: ',
+            this.state.count
+        );
+>>>>>>> b9f4b308ba4a5c1ed0e1378c42610a25578da964
     }
 
     // Add headers to the request
@@ -10305,9 +10341,14 @@ module.exports = function xhrAdapter(config) {
       });
     }
 
+<<<<<<< HEAD
     // Add withCredentials to request if needed
     if (config.withCredentials) {
       request.withCredentials = true;
+=======
+    render: function render() {
+        return _react2.default.createElement(Counter, { start: 5 });
+>>>>>>> b9f4b308ba4a5c1ed0e1378c42610a25578da964
     }
 
     // Add responseType to request if needed
